@@ -13,40 +13,56 @@
   <header class="bg-black text-white p-4 flex justify-between items-center">
     <h1 class="text-xl font-bold">Brasaland</h1>
     <nav>
-      <a href="#about" class="mx-2">Nosotros</a>
-      <a href="#services" class="mx-2">Servicios</a>
-      <a href="application.html" class="bg-red-500 px-4 py-2 rounded">Reservar</a>
+      <a href="#about" class="mx-2 hover:text-red-400">Nosotros</a>
+      <a href="#services" class="mx-2 hover:text-red-400">Servicios</a>
+      <a href="application.html" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded">Reservar</a>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="text-center py-16 bg-red-100">
-    <h2 class="text-3xl font-bold mb-4">Sabor a la brasa en Colombia y Estados Unidos</h2>
-    <p class="mb-6">Experiencia consistente, servicio cálido y cocina rápida.</p>
-    <a href="application.html" class="bg-black text-white px-6 py-3 rounded">Solicitar servicio</a>
+  <section class="text-center py-20 bg-gradient-to-r from-black to-red-600 text-white">
+    <h2 class="text-4xl font-bold mb-4">Sabor a la brasa en Colombia y Estados Unidos</h2>
+    <p class="mb-6 text-lg">Experiencia consistente, servicio cálido y cocina rápida.</p>
+    <a href="application.html" class="bg-white text-black px-6 py-3 rounded font-semibold hover:bg-gray-200">
+      Solicitar servicio
+    </a>
   </section>
 
   <!-- About -->
-  <section id="about" class="p-8">
-    <h3 class="text-2xl font-bold mb-4">Sobre Brasaland</h3>
-    <p>
+  <section id="about" class="p-10 max-w-4xl mx-auto text-center">
+    <h3 class="text-3xl font-bold mb-4">Sobre Brasaland</h3>
+    <p class="text-lg">
       Brasaland es una cadena de restaurantes con presencia internacional,
       ofreciendo una experiencia gastronómica consistente en cada ubicación.
     </p>
   </section>
 
   <!-- Services -->
-  <section id="services" class="p-8 bg-gray-100">
-    <h3 class="text-2xl font-bold mb-4">Nuestros Servicios</h3>
-    <ul class="list-disc ml-6">
-      <li>Reservas</li>
-      <li>Eventos</li>
-      <li>Catering</li>
-    </ul>
+  <section id="services" class="p-10 bg-gray-100">
+    <h3 class="text-3xl font-bold mb-8 text-center">Nuestros Servicios</h3>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+      <div class="bg-white p-6 shadow rounded-lg text-center">
+        <h4 class="font-bold text-lg mb-2">Reservas</h4>
+        <p>Reserva tu mesa de forma rápida y sencilla.</p>
+      </div>
+
+      <div class="bg-white p-6 shadow rounded-lg text-center">
+        <h4 class="font-bold text-lg mb-2">Eventos</h4>
+        <p>Organizamos eventos especiales con el mejor sabor a la brasa.</p>
+      </div>
+
+      <div class="bg-white p-6 shadow rounded-lg text-center">
+        <h4 class="font-bold text-lg mb-2">Catering</h4>
+        <p>Lleva la experiencia Brasaland a cualquier lugar.</p>
+      </div>
+
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-black text-white text-center p-4">
+  <footer class="bg-black text-white text-center p-6 mt-10">
     <p>© 2026 Brasaland</p>
   </footer>
 
