@@ -7,38 +7,34 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 text-gray-800">
 
-  <main class="max-w-2xl mx-auto p-6 bg-white mt-10 rounded shadow">
+  <main class="max-w-3xl mx-auto bg-white p-8 mt-10 rounded-lg shadow">
 
-    <h1 class="text-2xl font-bold mb-6">Solicitud de Servicio</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center">Solicitud de Servicio</h1>
 
-    <form id="applicationForm" class="space-y-4">
+    <form id="applicationForm" class="space-y-5">
 
-      <!-- Nombre -->
       <div>
         <label for="fullName" class="block font-semibold">Nombre completo</label>
         <input type="text" id="fullName" class="w-full border p-2 rounded" required>
-        <p class="text-red-500 text-sm" id="error-fullName"></p>
+        <p id="error-fullName" class="text-red-500 text-sm"></p>
       </div>
 
-      <!-- Email -->
       <div>
-        <label for="email">Email</label>
+        <label for="email" class="block font-semibold">Correo electrónico</label>
         <input type="email" id="email" class="w-full border p-2 rounded" required>
-        <p class="text-red-500 text-sm" id="error-email"></p>
+        <p id="error-email" class="text-red-500 text-sm"></p>
       </div>
 
-      <!-- Teléfono -->
       <div>
-        <label for="phone">Teléfono</label>
+        <label for="phone" class="block font-semibold">Teléfono</label>
         <input type="tel" id="phone" class="w-full border p-2 rounded" required>
-        <p class="text-red-500 text-sm" id="error-phone"></p>
+        <p id="error-phone" class="text-red-500 text-sm"></p>
       </div>
 
-      <!-- País -->
       <div>
-        <label for="country">País</label>
+        <label for="country" class="block font-semibold">País</label>
         <select id="country" class="w-full border p-2 rounded" required>
           <option value="">Selecciona</option>
           <option>Colombia</option>
@@ -46,9 +42,13 @@
         </select>
       </div>
 
-      <!-- Tipo de servicio -->
       <div>
-        <label for="serviceType">Tipo de servicio</label>
+        <label for="city" class="block font-semibold">Ciudad</label>
+        <input type="text" id="city" class="w-full border p-2 rounded" required>
+      </div>
+
+      <div>
+        <label for="serviceType" class="block font-semibold">Tipo de servicio</label>
         <select id="serviceType" class="w-full border p-2 rounded" required>
           <option value="">Selecciona</option>
           <option>reserva</option>
@@ -57,45 +57,43 @@
         </select>
       </div>
 
-      <!-- Fecha -->
       <div>
-        <label for="eventDate">Fecha</label>
+        <label for="eventDate" class="block font-semibold">Fecha</label>
         <input type="date" id="eventDate" class="w-full border p-2 rounded" required>
-        <p class="text-red-500 text-sm" id="error-date"></p>
+        <p id="error-date" class="text-red-500 text-sm"></p>
       </div>
 
-      <!-- Personas -->
       <div>
-        <label for="guestCount">Número de personas</label>
-        <input type="number" id="guestCount" class="w-full border p-2 rounded" required>
+        <label for="guestCount" class="block font-semibold">Número de personas</label>
+        <input type="number" id="guestCount" class="w-full border p-2 rounded" required min="1">
       </div>
 
-      <!-- Comentarios -->
       <div>
-        <label for="notes">Comentarios</label>
-        <textarea id="notes" class="w-full border p-2 rounded"></textarea>
+        <label for="estimatedBudget" class="block font-semibold">Presupuesto estimado (opcional)</label>
+        <input type="number" id="estimatedBudget" class="w-full border p-2 rounded">
       </div>
 
-      <!-- Términos -->
       <div>
-        <label>
-          <input type="checkbox" id="termsAccepted">
-          Acepto los términos
-        </label>
-        <p class="text-red-500 text-sm" id="error-terms"></p>
+        <label for="notes" class="block font-semibold">Comentarios</label>
+        <textarea id="notes" class="w-full border p-2 rounded" maxlength="500"></textarea>
       </div>
 
-      <!-- Botones -->
-      <div class="flex gap-4">
-        <button type="submit" class="bg-black text-white px-4 py-2 rounded">
+      <div class="flex items-center gap-2">
+        <input type="checkbox" id="termsAccepted">
+        <label for="termsAccepted">Acepto los términos y condiciones</label>
+      </div>
+      <p id="error-terms" class="text-red-500 text-sm"></p>
+
+      <div class="flex gap-4 justify-center mt-6">
+        <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">
           Enviar
         </button>
-        <button type="reset" class="bg-gray-300 px-4 py-2 rounded">
+        <button type="reset" class="bg-gray-300 px-6 py-2 rounded hover:bg-gray-400">
           Limpiar
         </button>
       </div>
 
-      <p id="successMessage" class="text-green-600 font-semibold"></p>
+      <p id="successMessage" class="text-green-600 text-center font-semibold mt-4"></p>
 
     </form>
 
