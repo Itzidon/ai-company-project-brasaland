@@ -3,7 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brasaland</title>
+
+  <!-- SEO -->
+  <title>Brasaland | Restaurante a la Brasa en Colombia y Estados Unidos</title>
+  <meta name="description" content="Brasaland es una cadena de restaurantes a la brasa con presencia en Colombia y Estados Unidos. Reserva tu experiencia ahora.">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Brasaland",
+    "description": "Cadena de restaurantes a la brasa con presencia en Colombia y Estados Unidos.",
+    "servesCuisine": "Parrilla",
+    "areaServed": ["Colombia", "Estados Unidos"]
+  }
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -15,7 +31,9 @@
     <nav>
       <a href="#about" class="mx-2 hover:text-red-400">Nosotros</a>
       <a href="#services" class="mx-2 hover:text-red-400">Servicios</a>
-      <a href="application.html" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded">Reservar</a>
+      <a href="#why" class="mx-2 hover:text-red-400">Por qué elegirnos</a>
+      <a href="#contact" class="mx-2 hover:text-red-400">Contacto</a>
+      <a href="application.html" class="bg-red-500 px-4 py-2 rounded hover:bg-red-600">Reservar</a>
     </nav>
   </header>
 
@@ -32,12 +50,11 @@
   <section id="about" class="p-10 max-w-4xl mx-auto text-center">
     <h3 class="text-3xl font-bold mb-4">Sobre Brasaland</h3>
     <p class="text-lg">
-      Brasaland es una cadena de restaurantes con presencia internacional,
-      ofreciendo una experiencia gastronómica consistente en cada ubicación.
+      Brasaland es una cadena de restaurantes con presencia en Colombia y Estados Unidos, ofreciendo una experiencia gastronómica consistente, rápida y de alta calidad en cada ubicación.
     </p>
   </section>
 
-  <!-- Services -->
+  <!-- Servicios -->
   <section id="services" class="p-10 bg-gray-100">
     <h3 class="text-3xl font-bold mb-8 text-center">Nuestros Servicios</h3>
 
@@ -61,8 +78,35 @@
     </div>
   </section>
 
+  <!-- Por qué elegirnos -->
+  <section id="why" class="p-10 max-w-5xl mx-auto text-center">
+    <h3 class="text-3xl font-bold mb-6">¿Por qué elegir Brasaland?</h3>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div>
+        <h4 class="font-bold">Calidad constante</h4>
+        <p>La misma experiencia en todos nuestros locales.</p>
+      </div>
+      <div>
+        <h4 class="font-bold">Servicio rápido</h4>
+        <p>Optimización de cocina para una atención eficiente.</p>
+      </div>
+      <div>
+        <h4 class="font-bold">Presencia internacional</h4>
+        <p>Colombia y Estados Unidos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contact" class="p-10 bg-gray-100 text-center">
+    <h3 class="text-3xl font-bold mb-4">Contacto</h3>
+    <p>Email: contacto@brasaland.com</p>
+    <p>Teléfono: +1 305 000 0000</p>
+  </section>
+
   <!-- Footer -->
-  <footer class="bg-black text-white text-center p-6 mt-10">
+  <footer class="bg-black text-white text-center p-6">
     <p>© 2026 Brasaland</p>
   </footer>
 
