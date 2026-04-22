@@ -5,48 +5,145 @@ form.addEventListener("submit", function (e) {
 
   let valid = true;
 
-  // limpiar errores
-  document.querySelectorAll("p[id^='error']").forEach(el => el.textContent = "");
+  // Limpiar errores
+  document.querySelectorAll("p[id^='error']").forEach((el) => {
+    el.textContent = "";
+  });
   document.getElementById("successMessage").textContent = "";
 
-  const name = document.getElementById("fullName").value.trim();
+  // Eliminar errores dinámicos previos
+  [
+    "error-country",
+    "error-city",
+    "error-service",
+    "error-guest",
+    "error-budget",
+    "error-notes"
+  ].forEach((id) => {
+    const existingError = document.getElementById(id);
+    if (existingError) existingError.remove();
+  });
+
+  // Obtener valores
+  const fullName = document.getElementById("fullName").value.trim();
   const email = document.getElementById("email").value.trim();
   const phone = document.getElementById("phone").value.trim();
-  const date = document.getElementById("eventDate").value;
-  const terms = document.getElementById("termsAccepted").checked;
+  const country = document.getElementById("country").value;
+  const city = document.getElementById("city").value.trim();
+  const serviceType = document.getElementById("serviceType").value;
+  const eventDate = document.getElementById("eventDate").value;
+  const guestCount = document.getElementById("guestCount").value;
+  const estimatedBudget = document.getElementById("estimatedBudget").value;
+  const notes = document.getElementById("notes").value.trim();
+  const termsAccepted = document.getElementById("termsAccepted").checked;
 
   // Nombre
-  if (name.length < 3) {
-    document.getElementById("error-fullName").textContent = "Nombre mínimo 3 caracteres";
+  if (fullName.length < 3) {
+    document.getElementById("error-fullName").textContent =
+      "El nombre debe tener al menos 3 caracteres.";
     valid = false;
   }
 
   // Email
-  if (!email.includes("@")) {
-    document.getElementById("error-email").textContent = "Email inválido";
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    document.getElementById("error-email").textContent =
+      "Introduce un correo electrónico válido.";
     valid = false;
   }
 
   // Teléfono
   if (phone.length < 8) {
-    document.getElementById("error-phone").textContent = "Teléfono inválido";
+    document.getElementById("error-phone").textContent =
+      "Introduce un teléfono válido (mínimo 8 dígitos).";
+    valid = false;
+  }
+
+  // País
+  if (!country) {
+    const error = document.createElement("p");
+    error.id = "error-country";
+    error.className = "text-red-500 text-sm";
+    error.textContent = "Selecciona un país.";
+    document.getElementById("country").after(error);
+    valid = false;
+  }
+
+  // Ciudad
+  if (city.length < 2) {
+    const error = document.createElement("p");
+    error.id = "error-city";
+    error.className = "text-red-500 text-sm";
+    error.textContent = "Introduce una ciudad válida.";
+    document.getElementById("city").after(error);
+    valid = false;
+  }
+
+  // Tipo de servicio
+  if (!serviceType) {
+    const error = document.createElement("p");
+    error.id = "error-service";
+    error.className = "text-red-500 text-sm";
+    error.textContent = "Selecciona un tipo de servicio.";
+    document.getElementById("serviceType").after(error);
     valid = false;
   }
 
   // Fecha
-  const today = new Date().toISOString().split("T")[0];
-  if (date < today) {
-    document.getElementById("error-date").textContent = "Fecha no válida";
+  if (!eventDate) {
+    document.getElementById("error-date").textContent =
+      "Selecciona una fecha.";
+    valid = false;
+  } else {
+    const today = new Date().toISOString().split("T")[0];
+    if (eventDate < today) {
+      document.getElementById("error-date").textContent =
+        "La fecha no puede ser pasada.";
+      valid = false;
+    }
+  }
+
+  // Número de personas
+  if (!guestCount || Number(guestCount) < 1) {
+    const error = document.createElement("p");
+    error.id = "error-guest";
+    error.className = "text-red-500 text-sm";
+    error.textContent = "Debe haber al menos 1 persona.";
+    document.getElementById("guestCount").after(error);
+    valid = false;
+  }
+
+  // Presupuesto
+  if (estimatedBudget && Number(estimatedBudget) < 0) {
+    const error = document.createElement("p");
+    error.id = "error-budget";
+    error.className = "text-red-500 text-sm";
+    error.textContent = "El presupuesto no puede ser negativo.";
+    document.getElementById("estimatedBudget").after(error);
+    valid = false;
+  }
+
+  // Comentarios
+  if (notes.length > 500) {
+    const error = document.createElement("p");
+    error.id = "error-notes";
+    error.className = "text-red-500 text-sm";
+    error.textContent = "Máximo 500 caracteres.";
+    document.getElementById("notes").after(error);
     valid = false;
   }
 
   // Términos
-  if (!terms) {
-    document.getElementById("error-terms").textContent = "Debes aceptar los términos";
+  if (!termsAccepted) {
+    document.getElementById("error-terms").textContent =
+      "Debes aceptar los términos y condiciones.";
     valid = false;
   }
 
+  // Éxito
   if (valid) {
-    document.getElementById("successMessage").textContent = "Solicitud enviada correctamente ✅";
+    document.getElementById("successMessage").textContent =
+      "Solicitud enviada correctamente ✅";
+    form.reset();
   }
 });
