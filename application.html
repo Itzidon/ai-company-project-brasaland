@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud - Brasaland</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+  <main class="max-w-2xl mx-auto p-6 bg-white mt-10 rounded shadow">
+
+    <h1 class="text-2xl font-bold mb-6">Solicitud de Servicio</h1>
+
+    <form id="applicationForm" class="space-y-4">
+
+      <!-- Nombre -->
+      <div>
+        <label for="fullName" class="block font-semibold">Nombre completo</label>
+        <input type="text" id="fullName" class="w-full border p-2 rounded" required>
+        <p class="text-red-500 text-sm" id="error-fullName"></p>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" class="w-full border p-2 rounded" required>
+        <p class="text-red-500 text-sm" id="error-email"></p>
+      </div>
+
+      <!-- Teléfono -->
+      <div>
+        <label for="phone">Teléfono</label>
+        <input type="tel" id="phone" class="w-full border p-2 rounded" required>
+        <p class="text-red-500 text-sm" id="error-phone"></p>
+      </div>
+
+      <!-- País -->
+      <div>
+        <label for="country">País</label>
+        <select id="country" class="w-full border p-2 rounded" required>
+          <option value="">Selecciona</option>
+          <option>Colombia</option>
+          <option>Estados Unidos</option>
+        </select>
+      </div>
+
+      <!-- Tipo de servicio -->
+      <div>
+        <label for="serviceType">Tipo de servicio</label>
+        <select id="serviceType" class="w-full border p-2 rounded" required>
+          <option value="">Selecciona</option>
+          <option>reserva</option>
+          <option>evento</option>
+          <option>catering</option>
+        </select>
+      </div>
+
+      <!-- Fecha -->
+      <div>
+        <label for="eventDate">Fecha</label>
+        <input type="date" id="eventDate" class="w-full border p-2 rounded" required>
+        <p class="text-red-500 text-sm" id="error-date"></p>
+      </div>
+
+      <!-- Personas -->
+      <div>
+        <label for="guestCount">Número de personas</label>
+        <input type="number" id="guestCount" class="w-full border p-2 rounded" required>
+      </div>
+
+      <!-- Comentarios -->
+      <div>
+        <label for="notes">Comentarios</label>
+        <textarea id="notes" class="w-full border p-2 rounded"></textarea>
+      </div>
+
+      <!-- Términos -->
+      <div>
+        <label>
+          <input type="checkbox" id="termsAccepted">
+          Acepto los términos
+        </label>
+        <p class="text-red-500 text-sm" id="error-terms"></p>
+      </div>
+
+      <!-- Botones -->
+      <div class="flex gap-4">
+        <button type="submit" class="bg-black text-white px-4 py-2 rounded">
+          Enviar
+        </button>
+        <button type="reset" class="bg-gray-300 px-4 py-2 rounded">
+          Limpiar
+        </button>
+      </div>
+
+      <p id="successMessage" class="text-green-600 font-semibold"></p>
+
+    </form>
+
+  </main>
+
+  <script src="validation.js"></script>
+
+</body>
+</html>
