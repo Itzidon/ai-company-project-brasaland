@@ -13,7 +13,7 @@
 
     <h1 class="text-3xl font-bold mb-6 text-center">Solicitud de Servicio</h1>
 
-    <form id="applicationForm" class="space-y-5">
+    <form id="applicationForm" class="space-y-5" novalidate>
 
       <div>
         <label for="fullName" class="block font-semibold">Nombre completo</label>
@@ -79,7 +79,7 @@
       </div>
 
       <div class="flex items-center gap-2">
-        <input type="checkbox" id="termsAccepted">
+        <input type="checkbox" id="termsAccepted" aria-required="true">
         <label for="termsAccepted">Acepto los términos y condiciones</label>
       </div>
       <p id="error-terms" class="text-red-500 text-sm"></p>
