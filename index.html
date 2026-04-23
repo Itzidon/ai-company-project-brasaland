@@ -8,6 +8,8 @@
   <title>Brasaland | Restaurante a la Brasa en Colombia y Estados Unidos</title>
   <meta name="description" content="Brasaland es una cadena de restaurantes a la brasa con presencia en Colombia y Estados Unidos. Reserva tu experiencia ahora.">
   <meta name="author" content="Brasaland">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
 
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -27,9 +29,9 @@
 <body class="bg-gray-50 text-gray-800">
 
   <!-- Header -->
-  <header class="bg-black text-white p-4 flex justify-between items-center">
+  <header class="bg-black text-white p-4 flex flex-col gap-3 md:flex-row md:justify-between md:items-center">
     <h1 class="text-xl font-bold">Brasaland</h1>
-    <nav aria-label="Navegación principal">
+    <nav aria-label="Navegación principal" class="flex flex-wrap justify-center gap-2 md:gap-0">
       <a href="#about" class="mx-2 hover:text-red-400">Nosotros</a>
       <a href="#services" class="mx-2 hover:text-red-400">Servicios</a>
       <a href="#why" class="mx-2 hover:text-red-400">Por qué elegirnos</a>
@@ -40,11 +42,13 @@
 
   <!-- Hero -->
   <section class="text-center py-20 bg-gradient-to-r from-black to-red-600 text-white">
-    <h2 class="text-4xl font-bold mb-4">Sabor a la brasa en Colombia y Estados Unidos</h2>
-    <p class="mb-6 text-lg">Experiencia consistente, servicio cálido y cocina a la brasa.</p>
-    <a href="application.html" class="bg-white text-black px-6 py-3 rounded font-semibold hover:bg-gray-200">
-      Solicitar servicio
-    </a>
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-4">Sabor a la brasa en Colombia y Estados Unidos</h2>
+      <p class="mb-6 text-lg">Experiencia consistente, servicio cálido y cocina a la brasa.</p>
+      <a href="application.html" class="bg-white text-black px-6 py-3 rounded font-semibold hover:bg-gray-200 shadow">
+        Solicitar servicio
+      </a>
+    </div>
   </section>
 
   <!-- About -->
@@ -102,6 +106,7 @@
   <!-- Contacto -->
   <section id="contact" class="p-10 bg-gray-100 text-center">
     <h3 class="text-3xl font-bold mb-4">Contacto</h3>
+    <p class="mb-2">Estamos listos para atender reservas, eventos y solicitudes de catering.</p>
     <p>Email: contacto@brasaland.com</p>
     <p>Teléfono: +1 305 000 0000</p>
   </section>
@@ -109,6 +114,7 @@
   <!-- Footer -->
   <footer class="bg-black text-white text-center p-6">
     <p>© 2026 Brasaland</p>
+    <p class="text-sm text-gray-400">Todos los derechos reservados</p>
   </footer>
 
 </body>
