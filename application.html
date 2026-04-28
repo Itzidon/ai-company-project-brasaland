@@ -9,11 +9,26 @@
 
 <body class="bg-gray-100 text-gray-800">
 
-  <main class="max-w-3xl mx-auto bg-white p-8 mt-10 rounded-lg shadow">
+  <!-- NAVBAR -->
+  <nav class="bg-black text-white p-4">
+    <div class="max-w-5xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="font-bold text-xl">Brasaland</a>
+
+      <div class="flex gap-4">
+        <a href="index.html" class="hover:text-yellow-400">Inicio</a>
+        <a href="index.html#servicios" class="hover:text-yellow-400">Servicios</a>
+        <a href="index.html#contacto" class="hover:text-yellow-400">Contacto</a>
+        <a href="application.html" class="hover:text-yellow-400">Reservar</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto bg-white p-8 mt-8 rounded-lg shadow">
 
     <h1 class="text-3xl font-bold mb-6 text-center">Solicitud de Servicio</h1>
 
-    <form id="applicationForm" class="space-y-5" novalidate>
+    <form id="applicationForm" class="space-y-5" novalidate 
+          onsubmit="alert('Reserva enviada correctamente'); return false;">
 
       <div>
         <label for="fullName" class="block font-semibold">Nombre completo</label>
