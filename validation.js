@@ -5,10 +5,11 @@ form.addEventListener("submit", function (e) {
 
   let valid = true;
 
-  // Limpiar errores
+  // Limpiar errores anteriores
   document.querySelectorAll("p[id^='error']").forEach((el) => {
     el.textContent = "";
   });
+
   document.getElementById("successMessage").textContent = "";
 
   // Eliminar errores dinámicos previos
@@ -20,8 +21,8 @@ form.addEventListener("submit", function (e) {
     "error-budget",
     "error-notes"
   ].forEach((id) => {
-    const existingError = document.getElementById(id);
-    if (existingError) existingError.remove();
+    const el = document.getElementById(id);
+    if (el) el.remove();
   });
 
   // Obtener valores
@@ -37,14 +38,14 @@ form.addEventListener("submit", function (e) {
   const notes = document.getElementById("notes").value.trim();
   const termsAccepted = document.getElementById("termsAccepted").checked;
 
-  // Nombre
+  // Validaciones
+
   if (fullName.length < 3) {
     document.getElementById("error-fullName").textContent =
       "El nombre debe tener al menos 3 caracteres.";
     valid = false;
   }
 
-  // Email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     document.getElementById("error-email").textContent =
@@ -52,14 +53,12 @@ form.addEventListener("submit", function (e) {
     valid = false;
   }
 
-  // Teléfono
   if (phone.length < 8) {
     document.getElementById("error-phone").textContent =
       "Introduce un teléfono válido (mínimo 8 dígitos).";
     valid = false;
   }
 
-  // País
   if (!country) {
     const error = document.createElement("p");
     error.id = "error-country";
@@ -69,7 +68,6 @@ form.addEventListener("submit", function (e) {
     valid = false;
   }
 
-  // Ciudad
   if (city.length < 2) {
     const error = document.createElement("p");
     error.id = "error-city";
@@ -79,7 +77,6 @@ form.addEventListener("submit", function (e) {
     valid = false;
   }
 
-  // Tipo de servicio
   if (!serviceType) {
     const error = document.createElement("p");
     error.id = "error-service";
@@ -89,7 +86,6 @@ form.addEventListener("submit", function (e) {
     valid = false;
   }
 
-  // Fecha
   if (!eventDate) {
     document.getElementById("error-date").textContent =
       "Selecciona una fecha.";
@@ -103,7 +99,6 @@ form.addEventListener("submit", function (e) {
     }
   }
 
-  // Número de personas
   if (!guestCount || Number(guestCount) < 1) {
     const error = document.createElement("p");
     error.id = "error-guest";
@@ -113,7 +108,6 @@ form.addEventListener("submit", function (e) {
     valid = false;
   }
 
-  // Presupuesto
   if (estimatedBudget && Number(estimatedBudget) < 0) {
     const error = document.createElement("p");
     error.id = "error-budget";
@@ -123,7 +117,6 @@ form.addEventListener("submit", function (e) {
     valid = false;
   }
 
-  // Comentarios
   if (notes.length > 500) {
     const error = document.createElement("p");
     error.id = "error-notes";
@@ -133,14 +126,13 @@ form.addEventListener("submit", function (e) {
     valid = false;
   }
 
-  // Términos
   if (!termsAccepted) {
     document.getElementById("error-terms").textContent =
       "Debes aceptar los términos y condiciones.";
     valid = false;
   }
 
-  // Éxito
+  // Si todo está correcto
   if (valid) {
     document.getElementById("successMessage").textContent =
       "Solicitud enviada correctamente ✅";
