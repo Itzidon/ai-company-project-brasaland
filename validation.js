@@ -92,6 +92,7 @@ form.addEventListener("submit", function (e) {
     valid = false;
   } else {
     const today = new Date().toISOString().split("T")[0];
+
     if (eventDate < today) {
       document.getElementById("error-date").textContent =
         "La fecha no puede ser pasada.";
@@ -132,10 +133,15 @@ form.addEventListener("submit", function (e) {
     valid = false;
   }
 
-  // Si todo está correcto
+  // Éxito + redirección
   if (valid) {
     document.getElementById("successMessage").textContent =
-      "Solicitud enviada correctamente ✅";
+      "Solicitud enviada correctamente ✅ Redirigiendo al inicio...";
+
     form.reset();
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 2000);
   }
 });
